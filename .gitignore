@@ -1,0 +1,15 @@
+# Build files
+bin/
+obj/
+*.o
+*.exe
+
+# CodeBlocks files
+*.layout
+*.depend
+
+# Data files
+*.csv
+
+# VS Code
+.vscode/
