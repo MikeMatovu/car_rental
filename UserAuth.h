@@ -18,6 +18,15 @@ private:
     const std::string USERS_FILE = "users.csv";
     UserInfo currentUser;
 
+private:
+    std::string hashPassword(const std::string& password) const {
+        unsigned long hash = 5381;
+        for (char c : password) {
+            hash = ((hash << 5) + hash) + c; // hash * 33 + c
+        }
+        return std::to_string(hash);
+    }
+
     void initializeAdminIfNeeded() {
         std::ifstream file(USERS_FILE);
         if (!file.good()) {

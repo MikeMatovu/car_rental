@@ -32,7 +32,22 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="Admin.cpp" />
+		<Unit filename="Admin.h" />
+		<Unit filename="Car.cpp" />
+		<Unit filename="Car.h" />
+		<Unit filename="CarTypes.cpp" />
+		<Unit filename="CarTypes.h" />
+		<Unit filename="RentalTransaction.cpp" />
+		<Unit filename="RentalTransaction.h" />
+		<Unit filename="User.cpp" />
+		<Unit filename="User.h" />
+		<Unit filename="UserAuth.cpp" />
+		<Unit filename="UserAuth.h" />
+		<Unit filename="data.csv" />
 		<Unit filename="main.cpp" />
+		<Unit filename="rental_history.csv" />
+		<Unit filename="users.csv" />
 		<Extensions>
 			<lib_finder disable_auto="1" />
 		</Extensions>
