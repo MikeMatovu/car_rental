@@ -12,54 +12,13 @@
 #include "User.h"
 #include "Admin.h"
 #include "CarTypes.h"
+#include "Customer.h"
 using namespace std;
 
 // Forward declarations
 class CarRentalSystem;
 void adminMenu(Admin& admin, vector<Car*>& cars);
-
-const string CUSTOMERS_FILE = "customers.csv";
-// Customer class
-class Customer : public User {
-private:
-    int currentRental = -1;
-
-
-public:
-    Customer(int id, string n, string addr, string contact) 
-        : User(id, n, addr, contact) {}
-
-    void bookCar(int carID) { currentRental = carID; }
-    void returnCar() { currentRental = -1; }
-    bool hasRentedCar() const { return currentRental != -1; }
-    int getCurrentRental() const { return currentRental; }
-
-    void saveToCSV(std::ofstream& file) const {
-        file << getID() << "," 
-             << getName() << "," 
-             << getAddress() << "," 
-             << getContact() << "," 
-             << currentRental << "\n";
-    }
-
-    static Customer createFromCSV(const std::string& line) {
-        stringstream ss(line);
-        string item;
-        vector<string> row;
-        
-        while (getline(ss, item, ',')) {
-            row.push_back(item);
-        }
-        
-        Customer customer(stoi(row[0]), row[1], row[2], row[3]);
-        if (row.size() > 4 && row[4] != "-1") {
-            customer.bookCar(stoi(row[4]));
-        }
-        return customer;
-    }
-
-    
-};
+void customerMenu(CarRentalSystem& system, int customerID);
 
 // System Class
 class CarRentalSystem {
